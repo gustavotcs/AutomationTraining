@@ -1,0 +1,102 @@
+package FFFFR;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.WebElement; 
+import org.openqa.selenium.chrome.*; 
+import org.openqa.selenium.support.ui.Select;
+
+
+
+public class Pryect {
+	public static void main(String[] args) throws InterruptedException { 
+		 System.setProperty("webdriver.chrome.driver","C:\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"); 
+		 ChromeOptions options = new ChromeOptions(); 
+		 options.addArguments("--remote-allow-origins=*"); 
+		 WebDriver driver = new ChromeDriver(options); 
+		 
+		 driver.get("https://www.saucedemo.com/v1/");
+		 
+		 WebElement Uss = driver.findElement(By.id("user-name")); 
+		 Uss.sendKeys("Hola");
+		 Thread.sleep(2000);
+		 
+		 WebElement Pass = driver.findElement(By.id("password")); 
+		 Pass.sendKeys("secret_sauce");
+		 Thread.sleep(2000);
+		 
+		 WebElement button1 = driver.findElement(By.id("login-button"));
+		 button1.click();
+		 Thread.sleep(2000);
+		 
+		 Uss.clear(); 
+		 Pass.clear();
+		 
+		 Thread.sleep(3000);
+		 
+		 
+		Uss.sendKeys("standard_user");
+		 
+		 
+		//input2.sendKeys("secret_sauce");
+		 
+		 button1.click();
+		 
+	
+	//seleccionar objetos
+			WebElement item1 = driver.findElement(By.xpath("//*[@id='inventory_container']/div/div[1]/div[3]/button")); 
+			 item1.click();
+			 Thread.sleep(2000);
+			 item1.click();
+			 
+		WebElement cartButton = driver.findElement(By.id("shopping_cart_container"));
+		cartButton.click();
+		Thread.sleep(2000);
+		driver.navigate().back();
+		item1.click();
+		cartButton.click();
+		Thread.sleep(2000);
+		
+		WebElement Bstore = driver.findElement(By.xpath("//*[@id='cart_contents_container']/div/div[2]/a[1]"));
+			Bstore.click();
+			Thread.sleep(2000);
+			WebElement item2 = driver.findElement(By.xpath("//*[@id=\'inventory_container\']/div/div[2]/div[3]/button")); 
+			 item2.click();
+			 Thread.sleep(2000);
+			 WebElement item3 = driver.findElement(By.xpath("//*[@id=\'inventory_container\']/div/div[5]/div[3]/button")); 
+			 item3.click();
+			 WebElement cartButton2 = driver.findElement(By.id("shopping_cart_container"));
+				cartButton2.click();
+				WebElement checkout = driver.findElement(By.xpath("//*[@id='cart_contents_container']/div/div[2]/a[2]"));
+				checkout.click();
+			 
+		//checkout
+				//static void CcheckOut(String Nam,String subm, String Lnam, String zipp) {
+				WebElement Nam = driver.findElement(By.id("first-name")); 
+				WebElement subm= driver.findElement(By.xpath("//*[@id='checkout_info_container']/div/form/div[2]/input"));
+				subm.click();
+				Thread.sleep(2000);
+				 Nam.sendKeys("joe");
+				 Thread.sleep(2000);
+				
+				 WebElement Lnam = driver.findElement(By.id("last-name")); 
+				 Lnam.sendKeys("Eojoe");
+				 Thread.sleep(2000);
+				 
+				 WebElement zipp = driver.findElement(By.id("postal-code")); 
+				 zipp.sendKeys("012345");
+				 Thread.sleep(2000);
+				 subm.click();
+				
+				
+				 
+				 
+				 		
+			driver.close();	
+				
+	}		 
+		
+	 
+	}
+	
+
